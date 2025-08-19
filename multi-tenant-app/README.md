@@ -1,5 +1,17 @@
 # MultiTenantApp
 
+To start and run the Angular portion of this application you will need:
+
+- nodejs
+- angular cli
+- a terminal
+
+`npm install -g @angular/cli`
+
+`ng serve`
+
+# Prebuilt information below:
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
 
 ## Development server
