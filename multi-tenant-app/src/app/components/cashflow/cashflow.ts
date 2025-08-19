@@ -21,7 +21,7 @@ export class Cashflow {
       details: "Some stubbed details",
       date: "11/11/1111",
       accountNumber: "Ac123",
-      referenceNumber: "ref1013"
+      referenceNumber: (Math.random() * 10000 | 0).toString(16)
     });
   }
 
