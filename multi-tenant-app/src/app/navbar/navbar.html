@@ -8,5 +8,11 @@
     <button matButton routerLink="/dataflow">Dataflow</button>
     <button matButton routerLink="/admin">Admin</button>
     <button matButton routerLink="/about">About</button>
+    @if(!isLoggedIn) {
+      <button matButton (click)="authService.loginWithRedirect()">Log in</button>
+    } 
+    @else {
+      <button matButton (click)="logout()">Log out</button>
+    }
   </nav>
 </div>
