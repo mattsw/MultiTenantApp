@@ -12,7 +12,8 @@ export const appConfig: ApplicationConfig = {
       domain: 'dev-tn5c16uxif30n7at.us.auth0.com',
       clientId: 'sW86xBfkhhFEyHX7EmfdeO0a5GgbbPQo',
       authorizationParams: {
-        redirect_uri: window.location.origin
+        redirect_uri: window.location.origin,
+        audience: 'mtdemo'
       }
     })
   ]
