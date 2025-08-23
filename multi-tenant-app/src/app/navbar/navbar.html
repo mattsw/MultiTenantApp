@@ -4,8 +4,14 @@
     <span class="text-base">Multi Tenant App</span>
   </button>
   <nav class="flex gap-4">
-    <button matButton routerLink="/cashflow">Cashflow</button>
-    <button matButton routerLink="/dataflow">Dataflow</button>
+    @if(hasCashflow){
+      <button matButton routerLink="/cashflow">Cashflow</button>
+    }
+    
+    @if(hasDataflow){
+      <button matButton routerLink="/dataflow">Dataflow</button>
+    }
+
     <button matButton routerLink="/admin">Admin</button>
     <button matButton routerLink="/about">About</button>
     @if(!isLoggedIn) {
