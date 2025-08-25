@@ -17,6 +17,7 @@
     }
 
     <button matButton routerLink="/about">About</button>
+    
     @if(!isLoggedIn) {
       <button matButton (click)="authService.loginWithRedirect()">Log in</button>
     } 
