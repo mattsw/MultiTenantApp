@@ -4,7 +4,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { AsyncPipe } from '@angular/common';
 import { environment } from '../../environments/environment.development';
 
 @Component({
@@ -18,6 +17,7 @@ export class Navbar {
   public isLoggedIn: boolean = false;
   public hasCashflow: boolean = false;
   public hasDataflow: boolean = false;
+  public hasAdmin: boolean = false;
   private apiManagementToken: string = environment.apiManagementToken;
   private managementApiEndpoint: string = "https://dev-tn5c16uxif30n7at.us.auth0.com/api/v2/users/";
 
@@ -34,8 +34,15 @@ export class Navbar {
 
       var results = await response.json();
 
-      this.hasCashflow = !!results.find((role: any) => role.name == 'Cashflow');
-      this.hasDataflow = !!results.find((role: any) => role.name == 'Dataflow');
+      if(!results.error){
+        this.hasCashflow = !!results.find((role: any) => role.name == 'Cashflow');
+        this.hasDataflow = !!results.find((role: any) => role.name == 'Dataflow');
+        this.hasAdmin = !!results.find((role: any) => role.name == 'Admin');
+      } else {
+        //TODO error handling here
+        console.log(results);
+      }
+      
     });
   }
 
