@@ -12,7 +12,10 @@
       <button matButton routerLink="/dataflow">Dataflow</button>
     }
 
-    <button matButton routerLink="/admin">Admin</button>
+    @if(hasAdmin){
+      <button matButton routerLink="/admin">Admin</button>
+    }
+
     <button matButton routerLink="/about">About</button>
     @if(!isLoggedIn) {
       <button matButton (click)="authService.loginWithRedirect()">Log in</button>
