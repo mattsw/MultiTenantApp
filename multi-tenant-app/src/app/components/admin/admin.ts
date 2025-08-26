@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-admin',
-  imports: [],
+  imports: [MatButton],
   templateUrl: './admin.html',
   styleUrl: './admin.scss'
 })
