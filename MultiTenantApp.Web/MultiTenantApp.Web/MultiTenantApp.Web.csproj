@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\MultiTenantApp.Domain\MultiTenantApp.Domain.csproj" />
+    <ProjectReference Include="..\MultiTenantApp.Services\MultiTenantApp.Services.csproj" />
   </ItemGroup>
 
 </Project>
