@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MultiTenantApp.Database.Cashflow;
-public sealed class MoneyTransactionContext :DbContext
+
+public sealed class MoneyTransactionContext : DbContext
 {
     public DbSet<MoneyTransaction> MoneyTransactions { get; set; }
 
     protected override void OnConfiguring(
         DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseInMemoryDatabase("TestDb");
+        optionsBuilder.UseInMemoryDatabase("TestDb");       
     }
 }

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MultiTenantApp.Web\MultiTenantApp.Database\MultiTenantApp.Database.csproj" />
     <ProjectReference Include="..\MultiTenantApp.Web\MultiTenantApp.Domain\MultiTenantApp.Domain.csproj" />
   </ItemGroup>
 
