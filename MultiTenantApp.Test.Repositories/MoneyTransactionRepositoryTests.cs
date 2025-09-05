@@ -1,4 +1,5 @@
-﻿using MultiTenantApp.Database.Cashflow;
+﻿using Microsoft.EntityFrameworkCore;
+using MultiTenantApp.Database.Cashflow;
 using MultiTenantApp.Repositories.Cashflow;
 
 namespace MultiTenantApp.Test.Repositories;
@@ -10,7 +11,10 @@ public class MoneyTransactionRepositoryTests
     [SetUp]
     public void Setup()
     {
-        moneyTransactionContext = new MoneyTransactionContext();
+        var mockOptions = new DbContextOptionsBuilder<MoneyTransactionContext>()
+            .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()) // Use a unique in-memory database for each test
+            .Options;
+        moneyTransactionContext = new MoneyTransactionContext(mockOptions);
     }
 
     [TearDown]

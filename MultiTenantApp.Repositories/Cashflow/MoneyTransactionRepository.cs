@@ -24,7 +24,7 @@ public sealed class MoneyTransactionRepository : IMoneyTransactionRepository
         return [.. _moneyTransactionContext.MoneyTransactions];
     }
 
-    private void SeedData(MoneyTransactionContext context)
+    private static void SeedData(MoneyTransactionContext context)
     {
         if (!context.MoneyTransactions.Any())
         {

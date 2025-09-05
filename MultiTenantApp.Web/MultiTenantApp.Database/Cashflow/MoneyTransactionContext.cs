@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MultiTenantApp.Database.Cashflow;
 
-public sealed class MoneyTransactionContext : DbContext
+public sealed class MoneyTransactionContext(DbContextOptions<MoneyTransactionContext> options) : DbContext(options)
 {
     public DbSet<MoneyTransaction> MoneyTransactions { get; set; }
 
