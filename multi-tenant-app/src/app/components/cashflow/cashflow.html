@@ -2,28 +2,64 @@
     <section>
         <h1 class="mt-2 text-3x1 font-medium">Cashflow</h1>
     </section>
-    <section>
-        <table class="table-auto border-separate border-spacing-2 border border-gray-200">
-            <thead>
-                <tr>
-                    <th class="border border-gray-100">Amount</th>
-                    <th class="border border-gray-100">Details</th>
-                    <th class="border border-gray-100">Date</th>
-                    <th class="border border-gray-100">Account Number</th>
-                    <th class="border border-gray-100">Reference Number</th>
-                </tr>
-            </thead>
-            <tbody>
-                @for(transaction of temporaryStaticPageData; track transaction.referenceNumber){
+    @if (!isLoading) {
+        <section>
+            <table class="table-auto border-separate border-spacing-2 border border-gray-200">
+                <thead>
                     <tr>
-                        <td class="border border-gray-100">{{transaction.amount}}</td>
-                        <td class="border border-gray-100">{{transaction.details}}</td>
-                        <td class="border border-gray-100">{{transaction.date}}</td>
-                        <td class="border border-gray-100">{{transaction.accountNumber}}</td>
-                        <td class="border border-gray-100">{{transaction.referenceNumber}}</td>
+                        <th class="border border-gray-100">Amount</th>
+                        <th class="border border-gray-100">Details</th>
+                        <th class="border border-gray-100">Date</th>
+                        <th class="border border-gray-100">Account Number</th>
+                        <th class="border border-gray-100">Reference Number</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-    </section>
+                </thead>
+                <tbody>
+                    @for(transaction of temporaryStaticPageData; track transaction.referenceNumber){
+                        <tr>
+                            <td class="border border-gray-100">{{transaction.amount}}</td>
+                            <td class="border border-gray-100">{{transaction.details}}</td>
+                            <td class="border border-gray-100">{{transaction.date}}</td>
+                            <td class="border border-gray-100">{{transaction.accountNumber}}</td>
+                            <td class="border border-gray-100">{{transaction.referenceNumber}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <table class="table-auto border-separate border-spacing-2 border border-gray-200">
+                <thead>
+                    <tr>
+                        <th class="border border-gray-100">Amount</th>
+                        <th class="border border-gray-100">Details</th>
+                        <th class="border border-gray-100">Date</th>
+                        <th class="border border-gray-100">Account Number</th>
+                        <th class="border border-gray-100">Reference Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(transaction of apiLoadedData; track transaction.referenceNumber){
+                        <tr>
+                            <td class="border border-gray-100">{{transaction.amount}}</td>
+                            <td class="border border-gray-100">{{transaction.details}}</td>
+                            <td class="border border-gray-100">{{transaction.date}}</td>
+                            <td class="border border-gray-100">{{transaction.accountNumber}}</td>
+                            <td class="border border-gray-100">{{transaction.referenceNumber}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    }
+    @else if(hasErrors) {
+        <section>
+            <h1 class="mt-2 text-3x1 font-medium">Placeholder error screen</h1>
+        </section>
+    }
+    @else{
+        <section>
+            <h1 class="mt-2 text-3x1 font-medium">Loading...</h1>
+        </section>
+    }
 </div>
