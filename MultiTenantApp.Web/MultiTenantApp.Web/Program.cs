@@ -13,6 +13,15 @@ builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//quick and dirty solution I would not do this in any environment other than my local machine
+builder.Services.AddCors(options => {
+    options.AddDefaultPolicy(policy => {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddScoped<IMoneyTransactionService, MoneyTransactionService>();
 builder.Services.AddScoped<IMoneyTransactionRepository, MoneyTransactionRepository>();
 builder.Services.AddDbContext<MoneyTransactionContext>(options => options.UseInMemoryDatabase("TestDb"));
@@ -28,6 +37,7 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = string.Empty;
 });
 
+app.UseCors();
 
 app.UseHttpsRedirection();
 
