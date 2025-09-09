@@ -1,1 +1,41 @@
-<p>dataflow works!</p>
+<div>
+    <section>
+        <h1 class="mt-2 text-3x1 font-medium">Dataflow</h1>
+    </section>
+
+    @if(!isLoading) {
+        <section>
+            <table class="table-auto border-separate border-spacing-2 border border-gray-200">
+                <thead>
+                    <tr>
+                        <th class="border border-gray-100">ID</th>
+                        <th class="border border-gray-100">Details</th>
+                        <th class="border border-gray-100">Date</th>
+                        <th class="border border-gray-100">Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(transaction of apiLoadedData; track transaction.transactionId){
+                        <tr>
+                            <td class="border border-gray-100">{{transaction.transactionId}}</td>
+                            <td class="border border-gray-100">{{transaction.details}}</td>
+                            <td class="border border-gray-100">{{transaction.date}}</td>
+                            <td class="border border-gray-100">{{transaction.source}}</td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    }
+    @else if(hasErrors){
+        <section>
+            <h1 class="mt-2 text-3x1 font-medium">Loading failed for dataflow transactions</h1>
+        </section>
+    }
+    @else {
+        <section>
+            <h1 class="mt-2 text-3x1 font-medium">Loading...</h1>
+        </section>
+    }    
+</div>>

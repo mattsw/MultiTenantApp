@@ -30,21 +30,4 @@ export class Cashflow implements OnInit{
 
   apiLoadedData: Array<MoneyTransaction> = [];
 
-  temporaryStaticPageData: Array<MoneyTransaction> = [
-    this.generateMoneyTransactionRecord(),
-    this.generateMoneyTransactionRecord(),
-    this.generateMoneyTransactionRecord(),
-    this.generateMoneyTransactionRecord()
-  ];
-
-  generateMoneyTransactionRecord() : MoneyTransaction {
-    return Object.assign(new MoneyTransaction(), {
-      amount: 1234,
-      details: "Some stubbed details",
-      date: "11/11/1111",
-      accountNumber: "Ac123",
-      referenceNumber: (Math.random() * 10000 | 0).toString(16)
-    });
-  }
-
 }
