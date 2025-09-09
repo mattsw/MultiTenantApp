@@ -8,8 +8,8 @@ namespace MultiTenantApp.Web.Controllers;
 [ApiController]
 public class DataflowController : ControllerBase
 {
-    [HttpGet("status")]
-    public IActionResult GetStatus()
+    [HttpGet]
+    public IActionResult Get()
     {
         var transactions = new List<DataflowTransaction>
         {
